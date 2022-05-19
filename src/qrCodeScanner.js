@@ -12,9 +12,14 @@ let scanning = false;
 
 qrcode.callback = res => {
   if (res) {
-    outputData.innerText = res;
-     console.log("Output is", res);
-    console.log(typeof res);
+    console.log("Output is", res);
+    let data = res;
+    if (data.includes('upi')){
+      outputData.innerText = data.substring(data.indexOf('pa=') + 3, data.indexOf('&'));
+    }
+    else{
+      outputData.innerText = data;
+    }
     scanning = false;
 
     video.srcObject.getTracks().forEach(track => {
