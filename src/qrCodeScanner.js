@@ -119,7 +119,7 @@ function afterScan(data){
     }
   }
 
-  outputData.innerText = pa + '<br>' + pn;
+  outputData.innerHTML = pa + '<br>' + pn;
 
 }
 
