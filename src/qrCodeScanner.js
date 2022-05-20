@@ -125,11 +125,21 @@ function afterScan(data){
 
 
 function processTransaction() {
+
+  var payee = '';
+
+  if (!pn.includes('*') && !pn.includes("PaytmUser")){
+    payee = pn;
+  }
+  else{
+      payee = pa;
+  }
+
   var amount = document.getElementById('amount-input').value;
   console.log("amount ", amount);
   if (amount != null && amount != ""){
     document.getElementById('transaction-amount').innerText = amount;
-    document.getElementById('payee-name').innerText = pn;
+    document.getElementById('payee-name').innerText = payee;
     document.getElementById("tone").play();
     document.getElementById('container').style.display = "none";
     document.getElementById('transaction-page').style.display = "block";
@@ -138,7 +148,6 @@ function processTransaction() {
   }
   else{
     alert("Please enter a valid amount");
-    processTransaction();
   }
 }
 
