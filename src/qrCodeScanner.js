@@ -104,15 +104,22 @@ function dragElement(elem) {
 function afterScan(data){
   console.log("here");
   var dataObject = data.split('&');
+  dataObject = dataObject.map( (s) => { return s.split('?').pop() } );
 
-  var pa = dataObject[0].split('=').pop();
-  var pn = dataObject[1].split('=').pop();
-  pn = decodeURI(pn);
+  var pa = '';
+  var pn = '';
+
+  for (let i = 0; i < dataObject.length; i++){
+    if (dataObject[i].includes('pa')) {
+        pa = dataObject[i].split('=').pop();
+    }
+    if (dataObject[i].includes('pn')) {
+        pn = dataObject[i].split('=').pop();
+        pn = decodeURI(pn);
+    }
+  }
 
   outputData.innerText = pa + '<br>' + pn;
-
-  document.getElementById('amount-submit').addEventListener("click", processTransaction(pn));
-
 
 }
 
