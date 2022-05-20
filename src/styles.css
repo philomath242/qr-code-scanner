@@ -102,15 +102,21 @@ h1 {
   width: 100%;
 }
 #main-video{
+  display: table;
+  /* margin: 0 auto; */
   z-index: 3;
-  height: 100vh; 
+  height: 100vh;
   margin: auto;
+  /* width: 100vw; */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   
 }
 #transaction-text{
   display: table;
   position: absolute;
-  top: 120px;
+  top: 128px;
   left:50%;
   transform: translateX(-50%);
   margin: 0 auto;
@@ -119,7 +125,7 @@ h1 {
   background-color: var(--green);
   z-index: 5;
   font-family: 'Source Code Pro', monospace;
-  font-size: 16px;  
+  font-size: 18px;  
   font-weight: 580;    
 }
 #tone{
