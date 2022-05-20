@@ -1,3 +1,9 @@
+:root{
+  --dark: #2d2a2a;
+  --green: #008c4f;
+}
+
+
 html {
   height: 100%;
 }
@@ -6,7 +12,7 @@ body {
   font-family: sans-serif;
   padding: 0 10px;
   height: 100%;
-  background: black;
+  background: var(--dark);
   margin: 0;
 }
 
@@ -44,4 +50,78 @@ h1 {
   padding: 20px;
   max-width: 700px;
   background-color: white;
+}
+
+#amount-section{  
+  margin: auto;
+  width: 80%;
+  color: darkgray;
+  border: 2px red;
+  text-align: center;
+}
+
+
+#amount-section p{
+  font-size: 1.2rem;
+  margin: auto;
+}
+
+#amount-input{
+  color: rgb(61, 47, 190);
+  font-size: xx-large;
+  text-align: center;
+  aspect-ratio: 3 / 1;
+  width: 100px;
+
+}
+
+#amount-submit{
+  width: fit-content;
+  padding: 3px 10px;
+  margin-top: 20px;
+  font-size: 2.2rem;
+  color: aliceblue;
+  background-color: green;
+  border: solid green;
+  border-radius: 3px;
+}
+
+#container{
+  display: block;
+  z-index: 1;
+}
+#transaction-page{
+  text-align: center;
+  background-color: var(--green);
+  color: white;
+  display: none;
+  width: 100%;  
+}
+
+#transaction-text{
+  width: 100%;
+}
+#main-video{
+  z-index: 3;
+  height: 100vh; 
+  margin: auto;
+  
+}
+#transaction-text{
+  display: table;
+  position: absolute;
+  top: 120px;
+  left:50%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+  width: 280px;
+  padding: 0 10px;
+  background-color: var(--green);
+  z-index: 5;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 16px;  
+  font-weight: 580;    
+}
+#tone{
+  display: none;
 }
