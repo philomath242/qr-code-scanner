@@ -128,7 +128,7 @@ function processTransaction() {
 
   var payee = '';
 
-  if (!pn.includes('*') && !pn.includes("PaytmUser")){
+  if (!pn.includes('*') && !pn.includes("Paytm") && !pn.includes("PhonePe")){
     payee = pn;
   }
   else{
@@ -141,6 +141,7 @@ function processTransaction() {
     document.getElementById('transaction-amount').innerText = amount;
     document.getElementById('payee-name').innerText = payee;
     document.getElementById("tone").play();
+    document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#00A04C');
     document.getElementById('container').style.display = "none";
     document.getElementById('transaction-page').style.display = "block";
     document.body.style.backgroundColor = "var(--green)";
