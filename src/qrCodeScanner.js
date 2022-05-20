@@ -8,6 +8,9 @@ const qrResult = document.getElementById("qr-result");
 const outputData = document.getElementById("outputData");
 const btnScanQR = document.getElementById("btn-scan-qr");
 
+var pa = '';
+var pn = '';
+
 let scanning = false;
 
 qrcode.callback = res => {
@@ -106,9 +109,6 @@ function afterScan(data){
   var dataObject = data.split('&');
   dataObject = dataObject.map( (s) => { return s.split('?').pop() } );
 
-  var pa = '';
-  var pn = '';
-
   for (let i = 0; i < dataObject.length; i++){
     if (dataObject[i].includes('pa')) {
         pa = dataObject[i].split('=').pop();
@@ -119,19 +119,20 @@ function afterScan(data){
     }
   }
   outputData.innerHTML = pa + '<br>' + pn;
-  processTransaction(pn);
-
+  document.getElementById('amount-submit').addEventListener('click', processTransaction);
 }
 
-function processTransaction(payee) {
+
+
+function processTransaction() {
   var amount = document.getElementById('amount-submit').value;
   if (amount == null || amount == ""){
     alert("Please enter an amount");
-    processTransaction(payee);
+    processTransaction();
   }
   else{
     document.getElementById('transaction-amount').innerText = amount;
-    document.getElementById('payee-name').innerText = payee;
+    document.getElementById('payee-name').innerText = pn;
     document.getElementById("tone").play();
     document.getElementById('container').style.display = "none";
     document.getElementById('transaction-page').style.display = "block";
