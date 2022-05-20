@@ -118,16 +118,16 @@ function afterScan(data){
         pn = decodeURI(pn);
     }
   }
-
   outputData.innerHTML = pa + '<br>' + pn;
+  processTransaction(pn);
 
 }
 
 function processTransaction(payee) {
   var amount = document.getElementById('amount-submit').value;
-  if (amount == null){
+  if (amount == null || amount == ""){
     alert("Please enter an amount");
-    processTransaction;
+    processTransaction(payee);
   }
   else{
     document.getElementById('transaction-amount').innerText = amount;
