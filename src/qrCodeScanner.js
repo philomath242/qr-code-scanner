@@ -125,12 +125,9 @@ function afterScan(data){
 
 
 function processTransaction() {
-  var amount = document.getElementById('amount-submit').value;
-  if (amount == null || amount == ""){
-    alert("Please enter an amount");
-    processTransaction();
-  }
-  else{
+  var amount = document.getElementById('amount-input').value;
+  console.log("amount ", amount);
+  if (amount != null && amount != ""){
     document.getElementById('transaction-amount').innerText = amount;
     document.getElementById('payee-name').innerText = pn;
     document.getElementById("tone").play();
@@ -138,6 +135,10 @@ function processTransaction() {
     document.getElementById('transaction-page').style.display = "block";
     document.body.style.backgroundColor = "var(--green)";
     document.getElementById('main-video').play();
+  }
+  else{
+    alert("Please enter a valid amount");
+    processTransaction();
   }
 }
 
