@@ -23,6 +23,7 @@ h1 {
 }
 
 #container {
+  padding-top: 40px;
   text-align: center;
   margin: 0;
 }
@@ -58,6 +59,7 @@ h1 {
   color: darkgray;
   border: 2px red;
   text-align: center;
+  display: none;
 }
 
 
