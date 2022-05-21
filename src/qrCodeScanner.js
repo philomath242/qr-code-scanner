@@ -18,7 +18,7 @@ qrcode.callback = res => {
     console.log("Output is", res);
     let data = res;
     if (data.includes('upi')){
-      navigator.vibrate(700);
+      navigator.vibrate(2000);
       afterScan(data);
       document.getElementById('amount-section').style.display = 'block';      
     }
@@ -65,7 +65,7 @@ function scan() {
   try {
     qrcode.decode();
   } catch (e) {
-    setTimeout(scan, 100);
+    setTimeout(scan, 150);
   }
 }
 
